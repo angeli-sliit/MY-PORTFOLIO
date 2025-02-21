@@ -1,0 +1,47 @@
+{
+  "name": "Angeli Wickrama Arachchige",
+  "bio": "A second-year student with experience in MERN stack development. Currently working on Yakadabadu.lk, a scrap collection and recycling management system, and aspiring to specialize in Data Science as part of a BSc (Hons) in Information Technology. 🚀📚",
+  "projects": [
+    {
+      "title": "Yakadabadu.lk",
+      "description": "MERN-stack web platform for scrap collection, recycling, and resale. Features include pickup scheduling, driver management, and admin reports. ♻️📦",
+      "technologies": ["React", "Node.js", "Express.js", "MongoDB"],
+      "role": "Full-stack Developer"
+    },
+    {
+      "title": "MedInfo",
+      "description": "A Kotlin-based mobile app that allows users to search for medicines and view detailed descriptions, ingredients, and potential side effects.",
+      "technologies": ["Kotline"],
+      "role": "Full-stack Developer"
+    },
+    {
+      "title": "Open-Source Portfolio",
+      "description": "A fully customizable and responsive portfolio template with sections for About, Projects, Skills, and Contact. Features easy customization via a JSON config file. 💻📄",
+      "technologies": ["React", "Bootstrap"],
+      "role": "Developer"
+    },
+    {
+      "title": "Inventory Management System",
+      "description": "A Java-based inventory management system for tracking stock levels and orders, including a Java Servlet SignUpHandler for user registration and email verification. 📦📈",
+      "technologies": ["Java", "Servlets", "JSP", "MySQL"],
+      "role": "Developer"
+    },
+    {
+      "title": "FashionStore",
+      "description": "A simple e-commerce website showcasing fashion items, built using HTML, CSS, and JavaScript. 👗🛍️",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "role": "Developer"
+    }
+  ],
+  "skills": {
+    "Programming 🖥️": ["Java", "C", "C++", "JavaScript", "Python", "R", "Kotlin"],
+    "Web Development 🌐": ["React", "Node.js", "Express.js", "MongoDB", "HTML", "CSS", "JS"],
+    "Tools 🛠️": ["Git", "PowerShell", "RStudio", "Postman"],
+    "Other 📊": ["Data Science fundamentals"]
+  },
+  "contact": {
+    "email": "angeli.2003it@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/angeli-wickrama-arachchige-649502293",
+    "github": "https://github.com/angeli-sliit"
+  }
+}

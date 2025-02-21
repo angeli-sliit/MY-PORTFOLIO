@@ -1,0 +1,302 @@
+:root {
+  --primary-color: #5c8aec;
+  --secondary-color: #7d409b;
+  --background-color: #f8fafc;
+  --text-color: #1e293b;
+}
+
+.dark-mode {
+  --primary-color: #e5983a;
+  --secondary-color: #818cf8;
+  --background-color: #1e293b;
+  --text-color: #f8fafc;
+}
+
+/* Full viewport height sections */
+section {
+  min-height: 100vh;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Proper spacing between sections */
+section + section {
+  margin-top: 2rem;
+}
+
+/* Smooth scrolling behavior with navbar offset */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px; /* Height of navbar */
+}
+
+/* Fixed navbar positioning */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Projects section specific styles */
+.technology {
+  color: #ffffff; /* Always white */
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+.tech-badge {
+  background-color: var(--secondary-color);
+  color: #ffffff; /* Always white */
+  font-weight: 500;
+}
+
+/* Rest of existing styles... */
+
+@media (min-width: 768px) {
+  .navbar-nav {
+    gap: 15px;
+  }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+/* Ensure proper spacing for mobile */
+@media (max-width: 575.98px) {
+  .container {
+    padding: 15px;
+  }
+}
+
+/* About Me section styles */
+.about-container {
+  padding: 2rem;
+}
+
+.profile-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+}
+
+.about-title {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.about-name {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+}
+
+.about-bio {
+  color: var(--text-color);
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.education-section {
+  margin-top: 1.5rem;
+}
+
+.education-title {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.education-list {
+  list-style: none;
+  padding-left: 0;
+  color: var(--text-color);
+}
+
+.education-item {
+  margin-bottom: 0.8rem;
+}
+
+/* Projects section styles */
+.projects-container {
+  padding: 2rem;
+}
+
+.projects-title {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.project-card {
+  background-color: var(--background-color);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.project-title {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.project-description {
+  color: var(--text-color);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.tech-badge {
+  background-color: var(--secondary-color);
+  color: var(white);
+  font-weight: 500;
+}
+
+.project-role {
+  color: var(--text-color);
+  margin-bottom: 0;
+}
+
+.technology {
+  color: var(--text-color); /* Always white */
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+/* Contact section styles */
+.contact-container {
+  padding: 2rem;
+}
+
+.contact-title {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.contact-card {
+  background-color: var(--background-color);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-info-title {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.contact-info-item {
+  color: var(--primary-color);
+}
+
+.contact-icon {
+  color: var(--primary-color);
+}
+
+.contact-link {
+  color: var(--primary-color);
+}
+
+.contact-input,
+.contact-textarea {
+  margin-bottom: 1rem;
+}
+
+.contact-submit {
+  background-color: var(--primary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+}
+
+/* Skills section styles */
+.skills-container {
+  padding: 2rem;
+}
+
+.skills-title {
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.skill-card {
+  background-color: var(--background-color);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.skill-category {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.skill-badge {
+  background-color: var(--secondary-color);
+  color: #fff;
+  font-weight: 500;
+  padding: 0.5rem 0.8rem;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: var(--background-color);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 1rem 0;
+}
+
+.nav-brand {
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.nav-link {
+  color: var(--text-color);
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+}
+
+.nav-theme-toggle {
+  color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.nav-theme-toggle:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.1);
+  border-radius: 4px;
+}
