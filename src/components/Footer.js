@@ -6,13 +6,13 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="social-links">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/angeli-sliit" target="_blank" rel="noopener noreferrer">
             <i className="bx bxl-github"></i>
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/angeli-wickrama-arachchige-649502293" target="_blank" rel="noopener noreferrer">
             <i className="bx bxl-linkedin"></i>
           </a>
-          <a href="mailto:your.email@example.com">
+            <a href="mailto:angeli.2003it@gmail.com">
             <i className="bx bx-envelope"></i>
           </a>
         </div>
