@@ -21,10 +21,11 @@ const AboutMe = () => {
 
       <br />
       <br />
-      <h3 className="about-name">{config.name}</h3>
-      <p className="lead about-bio">{config.bio}</p>
-
-
+        <center>
+          <h3 className="about-name">{config.name}</h3>
+          <p className="lead about-bio">{config.bio}</p>
+        </center>
+        <br />
       <div className="mt-4 education-section">
         <h4 className="education-title">Education</h4>
         <ul className="education-list">
