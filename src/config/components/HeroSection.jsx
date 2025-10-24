@@ -10,6 +10,7 @@ const typewriterTexts = [
 ];
 
 const HeroSection = () => {
+  // eslint-disable-next-line no-unused-vars
   const { theme } = useContext(ThemeContext);
   const [displayedText, setDisplayedText] = useState('');
   const [textIndex, setTextIndex] = useState(0);
@@ -19,6 +20,7 @@ const HeroSection = () => {
   // Error handling for config and image
   const name = config.name || 'Your Name';
   const title = config.title || 'Data Engineer & ML Engineer';
+  // eslint-disable-next-line no-unused-vars
   const bio = config.about?.detailed || config.bio || 'Your bio goes here.';
   const support = config.hero?.support || 'I build reliable ETL pipelines, production ML models, and interactive data apps that turn raw data into actionable insights.';
   let imageSrc;

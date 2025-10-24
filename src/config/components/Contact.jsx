@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import { ThemeContext } from '../../context/ThemeContext';
 
 const Contact = () => {
+  // eslint-disable-next-line no-unused-vars
   const { theme } = useContext(ThemeContext);
   const [formData, setFormData] = useState({
     name: '',

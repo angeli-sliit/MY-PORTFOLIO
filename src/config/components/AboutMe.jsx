@@ -3,6 +3,7 @@ import config from '../portfolioConfig.json';
 import { ThemeContext } from '../../context/ThemeContext';
 
 const AboutMe = () => {
+  // eslint-disable-next-line no-unused-vars
   const { theme } = useContext(ThemeContext);
   const about = config.about || {};
   const services = config.services || [];

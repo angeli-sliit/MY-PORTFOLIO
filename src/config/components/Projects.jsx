@@ -299,8 +299,10 @@ const Projects = () => {
             <div className="col-12">No projects available.</div>
           ) : (
             projects.map((project, index) => {
+              // eslint-disable-next-line no-unused-vars
               const icon = extractFirstEmoji(project.description || '') || project.icon || null;
               const imgSrc = project.image || project.thumbnail || null;
+              // eslint-disable-next-line no-unused-vars
               const haveImage = Boolean(imgSrc);
               const projectLabel = (project.title || 'Untitled project').trim();
               const repoLink = project.repo || project.github || null;
