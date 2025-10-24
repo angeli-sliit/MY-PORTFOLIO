@@ -23,10 +23,49 @@ npm start    # Run locally (http://localhost:3000)
 ```
 
 ## Deployment
-```sh
-npm run build  # Build for production
-vercel deploy  # Deploy to Vercel
+### Vercel
+1. [Sign up](https://vercel.com/signup) and connect your GitHub repo.
+2. Click "New Project" and import your portfolio repo.
+3. Set the build command to `npm run build` and output directory to `build`.
+4. Deploy!
+
+### Netlify
+1. [Sign up](https://app.netlify.com/signup) and link your GitHub repo.
+2. Set build command: `npm run build` and publish directory: `build`.
+3. Click "Deploy Site".
+
+### GitHub Actions (CI/CD)
+Add a `.github/workflows/deploy.yml` for automated builds:
+```yaml
+name: Deploy React App
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - run: npm install
+      - run: npm run build
+      # Add deployment steps for your platform (Vercel/Netlify/GitHub Pages)
 ```
+
+## Running Tests
+```sh
+npm test
+```
+Runs all component tests using React Testing Library and Jest.
+
+## Lighthouse Audit
+To check accessibility and performance:
+1. Install [Lighthouse](https://developers.google.com/web/tools/lighthouse) as a Chrome extension or use Chrome DevTools.
+2. Run an audit on your deployed site.
+3. Follow suggestions for further improvements.
 
 ## Contributing
 1. Fork the repository.

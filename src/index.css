@@ -1,13 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  --text-color: #22223b;
+  --card-bg: #fff;
+  --navbar-bg: #fff;
+  --navbar-text: #22223b;
+  --input-bg: #fff;
+}
+
+[data-theme='dark'] {
+  --bg-gradient: linear-gradient(135deg, #232946 0%, #121629 100%);
+  --text-color: #f4f4f4;
+  --card-bg: #232946;
+  --navbar-bg: #232946;
+  --navbar-text: #f4f4f4;
+  --input-bg: #232946;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--background-color);
+  font-family: 'Inter', 'Roboto', 'Montserrat', sans-serif;
+  background: var(--bg-gradient);
   color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background 0.3s, color 0.3s;
 }
 
 code {

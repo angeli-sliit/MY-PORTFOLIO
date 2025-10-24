@@ -1,0 +1,74 @@
+.skills-section {
+  font-family: 'Inter', 'Roboto', 'Montserrat', sans-serif;
+  background: var(--bg-gradient, linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%));
+  color: var(--text-color, #22223b);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(34, 34, 59, 0.08);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 700px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.skill-item {
+  background: var(--card-bg, #fff);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(34, 34, 59, 0.10);
+  padding: 1rem;
+  text-align: center;
+  font-weight: 500;
+  transition: box-shadow 0.2s;
+}
+.skill-item:hover {
+  box-shadow: 0 6px 24px rgba(34, 34, 59, 0.16);
+}
+
+.skill-bar-container {
+  margin-bottom: 1.2rem;
+}
+.skill-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+.skill-bar-bg {
+  background: #e0e7ef;
+  border-radius: 8px;
+  height: 14px;
+  width: 100%;
+  overflow: hidden;
+}
+.skill-bar-fill {
+  background: linear-gradient(90deg, #4f8cff 0%, #38b6ff 100%);
+  height: 100%;
+  border-radius: 8px;
+  width: 0;
+  animation: fillBar 1.2s cubic-bezier(.4,1.4,.6,1) forwards;
+}
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: var(--bar-width, 100%); }
+}
+.skill-bar-percent {
+  font-size: 0.95rem;
+  color: #4f8cff;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .skills-section {
+    padding: 1rem;
+  }
+  .skills-list {
+    gap: 1rem;
+  }
+} 

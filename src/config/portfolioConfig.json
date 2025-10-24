@@ -1,47 +1,143 @@
 {
   "name": "Angeli Wickrama Arachchige",
-  "bio": "A second-year student with experience in MERN stack development. Currently working on Yakadabadu.lk, a scrap collection and recycling management system, and aspiring to specialize in Data Science as part of a BSc (Hons) in Information Technology. 🚀📚",
+  "title": "Data Engineer & Data Scientist",
+  "bio": "I design and build scalable data pipelines, clean and transform massive datasets, and deploy ML models that turn data into real-world impact. My focus is end-to-end data systems — from ingestion and storage to modeling, APIs, and visualization.",
+  "hero": {
+    "headline": "Hi — I'm Angeli Wickrama Arachchige. I build data pipelines, models, and dashboards that make data actionable.",
+    "subtitles": ["Data Engineer", "Data Scientist", "ML Engineer"],
+    "support": "I design scalable ETL pipelines, train predictive models, and develop interactive dashboards for data-driven insights.",
+    "ctas": [
+      {"label": "View My Projects", "href": "#projects"},
+      {"label": "Download CV", "href": "/cv.pdf"}
+    ]
+  },
   "projects": [
     {
-      "title": "Yakadabadu.lk",
-      "description": "MERN-stack web platform for scrap collection, recycling, and resale. Features include pickup scheduling, driver management, and admin reports. ♻️📦",
+      "id": "airsense",
+      "title": "🌬️ AirSense — Multi-Source Air Quality Platform",
+      "description": "Aggregated and fused PM2.5/PM10 data from Open-Meteo, IQAir, OpenAQ, and WAIQ. Built automated ETL pipeline, IQR + z-score outlier detection, and an interactive React dashboard with time-series analytics.",
+      "technologies": ["Python", "Flask", "SQLAlchemy", "PostgreSQL", "React", "D3.js", "Docker"],
+      "role": "Data Engineer & Data Scientist",
+      "metrics": {
+        "rows_processed": 500000,
+        "sources": 4,
+        "update_frequency": "hourly"
+      },
+      "impact": "Processed ~500k sensor records; improved data consistency by 20% through statistical cleaning and fused hourly series for public alerts."
+    },
+    {
+      "id": "auction-ml",
+      "title": "🤖 Auction ML Pipeline (ArtifexAI)",
+      "description": "Engineered 57+ features from 60k+ auction rows and productionized ML models (LightGBM, CatBoost) through a FastAPI-based inference service. Implemented reproducible ETL pipelines and feature store design.",
+      "technologies": ["Python", "Pandas", "SQL", "LightGBM", "CatBoost", "Docker", "FastAPI"],
+      "role": "Data Engineer & ML Developer",
+      "metrics": {
+        "features_engineered": 57,
+        "rows_processed": 60000,
+        "model_auc_improvement": "15%"
+      },
+      "impact": "Boosted model AUC by 15%; established modular ETL and model deployment pipeline with Docker and version control."
+    },
+    {
+      "id": "logistics-dashboard",
+      "title": "🚚 Real-Time Logistics Dashboard",
+      "description": "Designed a React-based analytics dashboard for live delivery tracking using WebSockets and Redis. Included KPI aggregation, map-based heat visualization, and alert automation.",
+      "technologies": ["React", "WebSocket", "Redis", "Recharts", "Framer Motion"],
+      "role": "Data Visualization Engineer",
+      "metrics": {
+        "ui_latency": "<1s",
+        "kpis_tracked": 12,
+        "mobile_optimized": true
+      },
+      "impact": "Achieved <1s data refresh latency with real-time updates for logistics visibility."
+    },
+    {
+      "id": "yakadabadu",
+      "title": "♻️ Yakadabadu.lk — Recycling & Waste Management Platform",
+      "description": "Developed a MERN-based full-stack app enabling users to schedule pickups, manage driver routes, and analyze recycling data with admin dashboards.",
       "technologies": ["React", "Node.js", "Express.js", "MongoDB"],
-      "role": "Full-stack Developer"
+      "role": "Full-stack Developer (Data-focused)",
+      "impact": "Digitized scrap collection workflows with automated scheduling and route analytics."
     },
     {
-      "title": "MedInfo",
-      "description": "A Kotlin-based mobile app that allows users to search for medicines and view detailed descriptions, ingredients, and potential side effects.",
-      "technologies": ["Kotline"],
-      "role": "Full-stack Developer"
-    },
-    {
-      "title": "Open-Source Portfolio",
-      "description": "A fully customizable and responsive portfolio template with sections for About, Projects, Skills, and Contact. Features easy customization via a JSON config file. 💻📄",
-      "technologies": ["React", "Bootstrap"],
-      "role": "Developer"
-    },
-    {
-      "title": "Inventory Management System",
-      "description": "A Java-based inventory management system for tracking stock levels and orders, including a Java Servlet SignUpHandler for user registration and email verification. 📦📈",
-      "technologies": ["Java", "Servlets", "JSP", "MySQL"],
-      "role": "Developer"
-    },
-    {
-      "title": "FashionStore",
-      "description": "A simple e-commerce website showcasing fashion items, built using HTML, CSS, and JavaScript. 👗🛍️",
-      "technologies": ["HTML", "CSS", "JavaScript"],
-      "role": "Developer"
+      "id": "portfolio-site",
+      "title": "💻 Portfolio & Personal Website",
+      "description": "Built with React, Bootstrap, and Framer Motion featuring dynamic content, theme toggles, and smooth UX for showcasing data engineering and ML projects.",
+      "technologies": ["React 19", "Bootstrap 5", "CSS Variables", "EmailJS", "Framer Motion"],
+      "role": "Designer & Developer",
+      "impact": "Personal branding and project showcase with optimized UI performance and accessibility."
     }
   ],
   "skills": {
-    "Programming 🖥️": ["Java", "C", "C++", "JavaScript", "Python", "R", "Kotlin"],
-    "Web Development 🌐": ["React", "Node.js", "Express.js", "MongoDB", "HTML", "CSS", "JS"],
-    "Tools 🛠️": ["Git", "PowerShell", "RStudio", "Postman"],
-    "Other 📊": ["Data Science fundamentals"]
+    "Data Engineering 🗄️": ["PostgreSQL", "MySQL", "SQLAlchemy", "Docker", "Apache Airflow", "ETL Pipelines", "Data Modeling"],
+    "Data Science & ML 🤖": ["Python", "Pandas", "NumPy", "LightGBM", "CatBoost", "scikit-learn", "Feature Engineering", "Model Evaluation"],
+    "MLOps & Deployment 🚀": ["FastAPI", "Flask", "Docker", "CI/CD", "Model Serving", "Monitoring"],
+    "Data Visualization 📊": ["React", "D3.js", "Recharts", "Plotly", "Dashboards", "WebSocket Updates"],
+    "Data Processing & Analytics 🔧": ["Data Cleaning", "Outlier Detection (IQR, Z-score)", "Time Series Analysis", "Cross-validation", "Hyperparameter Tuning"],
+    "Tools & Practices 🛠️": ["Git", "GitHub", "Testing", "Version Control", "Automation"]
   },
   "contact": {
     "email": "angeli.2003it@gmail.com",
     "linkedin": "https://www.linkedin.com/in/angeli-wickrama-arachchige-649502293",
     "github": "https://github.com/angeli-sliit"
-  }
+  },
+  "about": {
+    "detailed": "I'm a Data Science undergraduate at SLIIT (CGPA 3.52) specializing in Data Engineering and Machine Learning. I design data systems that connect ingestion, transformation, model training, deployment, and visualization into one continuous flow. My work includes building ETL pipelines, automating data cleaning using IQR and z-score, engineering ML features, and deploying containerized APIs with Docker. I’m passionate about scalable, reproducible, and insight-driven data products.",
+    "short": "Data Engineer & Data Scientist passionate about pipelines, ML, and data visualization."
+  },
+  "services": [
+    "Data Engineering — ETL pipelines, data modeling, workflow automation (Airflow / cron)",
+    "Data Science — feature engineering, model training & tuning (LightGBM, CatBoost)",
+    "MLOps — containerized APIs, CI/CD pipelines, model monitoring",
+    "Visualization — React dashboards, D3 analytics, real-time charts",
+    "Consulting — data architecture design, data quality improvement, workflow optimization"
+  ],
+  "education": [
+    {
+      "degree": "BSc (Hons) in Data Science (Undergraduate)",
+      "institution": "Sri Lanka Institute of Information Technology (SLIIT)",
+      "details": "Current CGPA: 3.52",
+      "focus": "Data Engineering, Machine Learning, Statistical Analysis"
+    },
+    {
+      "degree": "GCE Advanced Level",
+      "institution": "Ch/Wen/Holy Family Balika Maha Vidyalaya, Wennappuwa",
+      "details": "A/L Results: Art - A, IT - A, Maths - B"
+    }
+  ],
+  "experience": [
+    {
+      "title": "Data Engineering Trainee (Academic Project)",
+      "company": "ArtifexAI",
+      "period": "Aug 2025 – Sep 2025",
+      "description": "Developed complete data engineering and ML pipeline for auction data — from preprocessing to API deployment.",
+      "achievements": [
+        "Engineered 57+ features from 60k+ auction records",
+        "Built ETL → model → API pipeline using Docker and LightGBM",
+        "Implemented reproducible and containerized workflow for scalable deployment"
+      ]
+    },
+    {
+      "title": "Student Representative / Committee Member",
+      "company": "FCSC (Faculty Student Committee)",
+      "period": "2023 – Present",
+      "description": "Volunteer role in the faculty student committee supporting student activities, coordinating events, and liaising between students and faculty.",
+      "achievements": [
+        "Coordinated logistics for faculty-level events with 50+ attendees",
+        "Managed communication channels and compiled attendance/feedback reports",
+        "Helped standardize event reporting formats to improve follow-up actions"
+      ]
+    },
+    {
+      "title": "Organizer & Volunteer — WIF (Women in Foss)",
+      "company":"SLIIT" ,
+      "period": "2024 – 2025",
+      "description": "Volunteer organizer for the WIF student initiative focusing on community-building, skill workshops, and mentorship sessions for students.",
+      "achievements": [
+        "Organized skill-building workshops and mentorship panels for 100+ participants",
+        "Collected and analysed attendee feedback to improve future events",
+        "Managed volunteer scheduling and materials preparation"
+      ]
+    }
+  ]
 }

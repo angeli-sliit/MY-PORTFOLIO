@@ -5,11 +5,129 @@
   --text-color: #1e293b;
 }
 
+/* Light theme (default) with purple neon styling */
+.light-mode {
+  --primary-color: #8b45ff;
+  --secondary-color: #ff6b9d;
+  --tertiary-color: #00d4ff;
+  --background-color: #f8fafc;
+  --text-color: #1e293b;
+  --card-bg: #ffffff;
+  --border-color: rgba(139, 69, 255, 0.2);
+  --gradient-primary: linear-gradient(135deg, #8b45ff 0%, #ff6b9d 50%, #00d4ff 100%);
+  --gradient-secondary: linear-gradient(45deg, #8b45ff, #ff6b9d);
+  --accent-glow: 0 0 20px rgba(139, 69, 255, 0.3), 0 0 40px rgba(255, 107, 157, 0.1);
+}
+
+/* Dark theme with purple neon styling */
 .dark-mode {
-  --primary-color: #e5983a;
-  --secondary-color: #818cf8;
-  --background-color: #1e293b;
-  --text-color: #f8fafc;
+  --primary-color: #b19cd9;
+  --secondary-color: #ff6b9d;
+  --tertiary-color: #00d4ff;
+  --background-color: #0a0a1a;
+  --text-color: #ffffff;
+  --card-bg: rgba(139, 69, 255, 0.05);
+  --border-color: rgba(139, 69, 255, 0.3);
+  --muted: #ffffff;
+  --gradient-primary: linear-gradient(135deg, #b19cd9 0%, #ff6b9d 50%, #00d4ff 100%);
+  --gradient-secondary: linear-gradient(45deg, #b19cd9, #ff6b9d);
+  --accent-glow: 0 0 20px rgba(177, 156, 217, 0.4), 0 0 40px rgba(255, 107, 157, 0.1);
+}
+
+
+/* Purple neon button styles for both light and dark modes */
+.purple-neon-button {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Orbitron', monospace;
+}
+
+.purple-neon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-secondary);
+  transition: left 0.5s ease;
+  opacity: 0.2;
+}
+
+.purple-neon-button:hover::before {
+  left: 100%;
+}
+
+.purple-neon-button:hover {
+  box-shadow: var(--accent-glow);
+  transform: translateY(-2px);
+  background: var(--gradient-primary);
+  color: white;
+}
+
+.purple-neon-button.secondary {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.purple-neon-button.secondary:hover {
+  box-shadow: 0 0 20px rgba(255, 107, 157, 0.3), 0 0 40px rgba(255, 107, 157, 0.1);
+}
+
+/* Purple neon card styles */
+.purple-neon-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.purple-neon-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.purple-neon-card:hover::before {
+  opacity: 1;
+}
+
+.purple-neon-card:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Purple neon text effects */
+.purple-neon-text {
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--primary-color);
+}
+
+.purple-neon-gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(139, 69, 255, 0.5);
 }
 
 /* Full viewport height sections */
@@ -54,6 +172,16 @@ html {
 }
 
 /* Rest of existing styles... */
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.4,1.4,.6,1), transform 0.7s cubic-bezier(.4,1.4,.6,1);
+}
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 @media (min-width: 768px) {
   .navbar-nav {
@@ -299,4 +427,304 @@ body {
 .nav-theme-toggle:hover {
   background-color: rgba(var(--primary-color-rgb), 0.1);
   border-radius: 4px;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4f8cff 0%, #38b6ff 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 16px rgba(34,34,59,0.18);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  transition: background 0.2s, opacity 0.2s, transform 0.2s;
+}
+.scroll-to-top:hover {
+  opacity: 1;
+  transform: scale(1.08);
+  background: linear-gradient(135deg, #38b6ff 0%, #4f8cff 100%);
+}
+
+/* Neon utility classes */
+.neon-bg {
+  background: var(--bg, #0a0a0f);
+}
+
+.neon-glow {
+  box-shadow: var(--accent-glow, 0 0 18px rgba(0,255,255,0.18), 0 0 40px rgba(255,0,217,0.06));
+}
+
+.neon-text {
+  color: var(--accent-primary, #00FFFF);
+  text-shadow: 0 0 10px var(--accent-primary, #00FFFF);
+}
+
+.neon-border {
+  border: 1px solid var(--accent-primary, #00FFFF);
+  box-shadow: inset 0 0 10px rgba(0,255,255,0.1);
+}
+
+/* Neon theme specific styles */
+.neon-mode {
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.neon-mode::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(0,255,255,0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255,0,217,0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Neon button styles */
+.neon-button {
+  background: transparent;
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.neon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.neon-button:hover::before {
+  left: 100%;
+}
+
+.neon-button:hover {
+  box-shadow: var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.neon-button:active {
+  transform: translateY(0);
+}
+
+/* Neon card styles */
+.neon-card {
+  background: var(--panel);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.neon-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-4px);
+}
+
+/* Typewriter neon effect */
+.neon-typewriter {
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px var(--accent-primary);
+  animation: neon-flicker 2s infinite alternate;
+}
+
+@keyframes neon-flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-primary), 0 0 30px var(--accent-primary);
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+
+/* Purple Neon theme specific styles */
+.purple-neon-mode {
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 50%, #16213e 100%);
+  position: relative;
+  overflow-x: hidden;
+}
+
+.purple-neon-mode::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(139, 69, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 107, 157, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Purple neon button styles */
+.purple-neon-button {
+  background: transparent;
+  border: 2px solid var(--accent-primary);
+  color: var(--accent-primary);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Orbitron', monospace;
+}
+
+.purple-neon-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-secondary);
+  transition: left 0.5s ease;
+  opacity: 0.2;
+}
+
+.purple-neon-button:hover::before {
+  left: 100%;
+}
+
+.purple-neon-button:hover {
+  box-shadow: var(--accent-glow);
+  transform: translateY(-2px);
+  background: var(--gradient-primary);
+  color: white;
+}
+
+/* Purple neon card styles */
+.purple-neon-card {
+  background: var(--panel);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.purple-neon-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gradient-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.purple-neon-card:hover::before {
+  opacity: 1;
+}
+
+.purple-neon-card:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-4px);
+}
+
+/* Purple neon text effects */
+.purple-neon-text {
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px var(--accent-primary);
+}
+
+.purple-neon-gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(139, 69, 255, 0.5);
+}
+
+/* Circuit pattern background */
+.purple-neon-mode .circuit-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(90deg, transparent 98%, rgba(139, 69, 255, 0.1) 100%),
+    linear-gradient(0deg, transparent 98%, rgba(139, 69, 255, 0.1) 100%);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glowing elements */
+.purple-neon-glow {
+  box-shadow: var(--accent-glow);
+}
+
+.purple-neon-pulse {
+  animation: purple-pulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes purple-pulse {
+  0% {
+    box-shadow: 0 0 5px var(--accent-primary);
+  }
+  100% {
+    box-shadow: 0 0 20px var(--accent-primary), 0 0 30px var(--accent-secondary);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .neon-typewriter {
+    animation: none;
+  }
+  
+  .neon-button::before {
+    display: none;
+  }
+  
+  .neon-card:hover {
+    transform: none;
+  }
+  
+  .purple-neon-pulse {
+    animation: none;
+  }
+  
+  .purple-neon-button::before {
+    display: none;
+  }
 }
