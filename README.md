@@ -3,17 +3,16 @@
 🚀 **Live Demo:** [portfolio-angeli.vercel.app](https://portfolio-angeli.vercel.app)
 
 ## Overview
-A modern, fully customizable portfolio template for developers, designers, and professionals. Built with React and Bootstrap, it features responsive design, animations, and easy customization.
+A modern, fully customizable portfolio template for developers, designers, and professionals. Built with React and plain CSS, it features responsive design, animations, and easy customization.
 
 ## Features
 - **Responsive & Modern UI**
-- **Dark Mode Support**
-- **Portfolio Sections:** About, Projects, Skills, Contact
-- **Easy Configuration:** Modify details via JSON
-- **Dynamic Project Gallery**
+- **Portfolio Sections:** About, Work, Toolkit, Research, Credentials, Contact
+- **Easy Configuration:** Modify details via `src/config/portfolioConfig.json`
+- **Downloadable CV:** Replace `public/cv.pdf` to update it
 
 **Frontend Framework**: React 
-- **Styling**:  Bootstrap 
+- **Styling**: Plain CSS (`src/App.css`, `src/index.css`)
 - **Deployment**: GitHub Pages / Vercel / Netlify
 
 ## Getting Started

@@ -1,35 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
 :root {
-  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
-  --text-color: #22223b;
-  --card-bg: #fff;
-  --navbar-bg: #fff;
-  --navbar-text: #22223b;
-  --input-bg: #fff;
+  --ground: #0b0610;
+  --panel: #120a18;
+  --panel-raised: #1a0e22;
+  --field: #170d1f;
+  --text: #f4eef7;
+  --text-soft: #e4dce9;
+  --text-muted: #cfc6d6;
+  --text-faint: #bdb3c5;
+  --accent: #ff9a4d;
+  --accent-ink: #170a02;
+  --accent-alt: #e58be0;
+  --line: rgba(255, 255, 255, 0.14);
+  --line-strong: rgba(255, 255, 255, 0.34);
+  --font-display: 'Big Shoulders', Impact, sans-serif;
+  --font-body: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+  --gutter: clamp(1rem, 5vw, 4rem);
+  --content-width: 84rem;
 }
 
-[data-theme='dark'] {
-  --bg-gradient: linear-gradient(135deg, #232946 0%, #121629 100%);
-  --text-color: #f4f4f4;
-  --card-bg: #232946;
-  --navbar-bg: #232946;
-  --navbar-text: #f4f4f4;
-  --input-bg: #232946;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Inter', 'Roboto', 'Montserrat', sans-serif;
-  background: var(--bg-gradient);
-  color: var(--text-color);
-  transition: background 0.3s, color 0.3s;
+  margin: 0;
+  background: var(--ground);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: var(--primary-color);
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
