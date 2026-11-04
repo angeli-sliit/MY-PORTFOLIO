@@ -944,6 +944,15 @@ section[id] {
   padding: 0 14px;
 }
 
+/* Browsers paint autofilled fields pale blue unless an inset shadow covers it */
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:focus {
+  box-shadow: 0 0 0 1000px var(--field) inset;
+  caret-color: var(--text);
+  -webkit-text-fill-color: var(--text);
+}
+
 .field textarea {
   padding: 12px 14px;
   resize: vertical;

@@ -1,7 +1,13 @@
-import { render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import emailjs from '@emailjs/browser';
 import App from './App';
 import config from './config/portfolioConfig.json';
+
+jest.mock('@emailjs/browser', () => ({
+  __esModule: true,
+  default: { init: jest.fn(), send: jest.fn() }
+}));
 
 beforeAll(() => {
   window.IntersectionObserver = class {
@@ -73,5 +79,20 @@ describe('Portfolio', () => {
     expect(screen.getByLabelText('Your name')).toBeRequired();
     expect(screen.getByLabelText('Email address')).toBeRequired();
     expect(screen.getByLabelText('Message')).toBeRequired();
+  });
+
+  test('a failed send keeps the message and hides the technical error', async () => {
+    jest.spyOn(console, 'error').mockImplementation(() => {});
+    emailjs.send.mockRejectedValue({ text: 'Gmail_API: Invalid grant' });
+    render(<App />);
+    fireEvent.change(screen.getByLabelText('Your name'), { target: { value: 'Test' } });
+    fireEvent.change(screen.getByLabelText('Email address'), { target: { value: 'test@example.com' } });
+    fireEvent.change(screen.getByLabelText('Message'), { target: { value: 'Hello' } });
+    fireEvent.submit(screen.getByRole('form', { name: 'Contact form' }));
+
+    const alert = await screen.findByRole('alert');
+    expect(alert).toHaveTextContent(config.contact.email);
+    expect(alert).not.toHaveTextContent('Gmail_API');
+    expect(screen.getByLabelText('Message')).toHaveValue('Hello');
   });
 });

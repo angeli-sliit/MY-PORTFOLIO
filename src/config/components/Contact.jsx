@@ -10,7 +10,7 @@ const Contact = () => {
   });
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
-  const [error, setError] = useState(null);
+  const [hasError, setHasError] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -23,7 +23,7 @@ const Contact = () => {
     e.preventDefault();
     setIsSending(true);
     setIsSent(false);
-    setError(null);
+    setHasError(false);
 
     // Initialize with Public Key
     emailjs.init('Yqtjh3gOQh3ZXUDrk');
@@ -46,7 +46,7 @@ const Contact = () => {
     .catch((err) => {
       setIsSending(false);
       console.error('Email sending failed:', err);
-      setError(`Failed to send message. Error: ${err.message || err.text || 'Unknown error'}`);
+      setHasError(true);
     });
   };
 
@@ -86,9 +86,10 @@ const Contact = () => {
             <p className="contact__notice" role="status">Message sent successfully!</p>
           )}
 
-          {error && (
+          {hasError && (
             <p className="contact__notice contact__notice--error" role="alert">
-              {error} If the issue persists, please contact me directly at {config.contact.email}.
+              Sorry, your message could not be sent. Please email me directly at{' '}
+              <a href={`mailto:${config.contact.email}`}>{config.contact.email}</a>.
             </p>
           )}
         </form>
