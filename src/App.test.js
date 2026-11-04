@@ -1,51 +1,77 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import App from './App';
-import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import Projects from './components/Projects';
-import AboutMe from './components/AboutMe';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import config from './config/portfolioConfig.json';
 
-describe('Portfolio Main Components', () => {
-  test('App renders without crashing', () => {
+beforeAll(() => {
+  window.IntersectionObserver = class {
+    observe() {}
+    disconnect() {}
+  };
+});
+
+describe('Portfolio', () => {
+  test('has one h1 with the full name', () => {
     render(<App />);
-    expect(screen.getByRole('navigation', { name: /main navigation/i })).toBeInTheDocument();
+    const headings = screen.getAllByRole('heading', { level: 1 });
+    expect(headings).toHaveLength(1);
+    expect(headings[0]).toHaveAccessibleName(config.name);
   });
 
-  test('Navbar renders and contains Portfolio brand', () => {
-    render(<Navbar />);
-    expect(screen.getByText(/portfolio/i)).toBeInTheDocument();
+  test('hero buttons link to the sections they name', () => {
+    render(<App />);
+    expect(screen.getByRole('link', { name: 'See my work' })).toHaveAttribute('href', '#work');
+    expect(screen.getByRole('link', { name: 'Get in touch' })).toHaveAttribute('href', '#contact');
+    expect(document.getElementById('work')).toBeInTheDocument();
+    expect(document.getElementById('contact')).toBeInTheDocument();
   });
 
-  test('HeroSection renders and displays name', () => {
-    render(<HeroSection />);
-    expect(screen.getByRole('heading', { level: 1 })).toBeInTheDocument();
+  test('every nav link points at a section that exists', () => {
+    render(<App />);
+    const nav = screen.getByRole('navigation', { name: /main navigation/i });
+    within(nav).getAllByRole('listitem').forEach(item => {
+      const href = within(item).getByRole('link').getAttribute('href');
+      expect(document.querySelector(href)).toBeInTheDocument();
+    });
   });
 
-  test('Projects section renders', () => {
-    render(<Projects />);
-    expect(screen.getByLabelText(/projects section/i)).toBeInTheDocument();
+  test('Download CV downloads the PDF', () => {
+    render(<App />);
+    const cv = screen.getByRole('link', { name: 'Download CV' });
+    expect(cv).toHaveAttribute('href', '/cv.pdf');
+    expect(cv).toHaveAttribute('download', config.cv.fileName);
   });
 
-  test('AboutMe section renders', () => {
-    render(<AboutMe />);
-    expect(screen.getByLabelText(/about me section/i)).toBeInTheDocument();
+  test('project cards show their links', () => {
+    render(<App />);
+    config.projects.filter(project => project.links).forEach(project => {
+      project.links.forEach(link => {
+        expect(screen.getByRole('link', { name: `${link.label}: ${project.title}` }))
+          .toHaveAttribute('href', link.href);
+      });
+    });
   });
 
-  test('Skills section renders', () => {
-    render(<Skills />);
-    expect(screen.getByLabelText(/skills section/i)).toBeInTheDocument();
+  test('every project visual exists', () => {
+    render(<App />);
+    document.querySelectorAll('.card__visual svg').forEach(svg => {
+      expect(svg.childElementCount).toBeGreaterThan(0);
+    });
+    expect(document.querySelectorAll('.card')).toHaveLength(config.projects.length);
   });
 
-  test('Contact section renders', () => {
-    render(<Contact />);
-    expect(screen.getByLabelText(/contact section/i)).toBeInTheDocument();
+  test('menu button reports whether the menu is open', async () => {
+    render(<App />);
+    const toggle = screen.getByRole('button', { name: 'Menu' });
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await userEvent.click(toggle);
+    expect(screen.getByRole('button', { name: 'Close' })).toHaveAttribute('aria-expanded', 'true');
   });
 
-  test('Footer renders and contains copyright', () => {
-    render(<Footer />);
-    expect(screen.getByText(/all rights reserved/i)).toBeInTheDocument();
+  test('contact form requires every field', () => {
+    render(<App />);
+    expect(screen.getByLabelText('Your name')).toBeRequired();
+    expect(screen.getByLabelText('Email address')).toBeRequired();
+    expect(screen.getByLabelText('Message')).toBeRequired();
   });
 });
